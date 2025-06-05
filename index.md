@@ -5,7 +5,6 @@
 			try {
 				embeddedservice_bootstrap.settings.language = 'en_US';
 
-
 				window.addEventListener("onEmbeddedMessagingReady", e => {
 					embeddedservice_bootstrap.prechatAPI.setVisiblePrechatField({
 						"_firstName":{
