@@ -18,7 +18,7 @@
 
 								"value": "Test",
 
-								"isEditableByEndUser": true
+								"isEditableByEndUser": false
 
 							},
 
@@ -26,7 +26,7 @@
 
 								"value": "User",
 
-								"isEditableByEndUser": true
+								"isEditableByEndUser": false
 
 							},
 
@@ -34,7 +34,7 @@
 
 								"value": "example@gmail.com",
 
-								"isEditableByEndUser": true
+								"isEditableByEndUser": false
 
 							},
 
