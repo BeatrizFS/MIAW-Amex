@@ -6,56 +6,16 @@
 				embeddedservice_bootstrap.settings.language = 'en_US'; // For example, enter 'en' or 'en-US'
 
 
-				window.addEventListener("onEmbeddedMessagingReady", e => {
+				window.addEventListener("onEmbeddedMessagingReady", () => {
+					console.log("Received the onEmbeddedMessagingReady event…");
 
-					// Check if the method is available before using it
+					// Send data to Salesforce
+					embeddedservice_bootstrap.prechatAPI.setHiddenPrechatFields({
+						"_email": "test@test.com"});
 
-					if (embeddedservice_bootstrap.prechatAPI && embeddedservice_bootstrap.prechatAPI.setVisiblePrechatFields) {
-
-						embeddedservice_bootstrap.prechatAPI.setVisiblePrechatFields({
-
-							"_firstName": {
-
-								"value": "Test",
-
-								"isEditableByEndUser": false
-
-							},
-
-							"_lastName": {
-
-								"value": "User",
-
-								"isEditableByEndUser": false
-
-							},
-
-							"_email": {
-
-								"value": "example@gmail.com",
-
-								"isEditableByEndUser": false
-
-							},
-
-						});
-
-						// Similarly, check for the presence of the method before using it
-
-						if (embeddedservice_bootstrap.prechatAPI.unsetVisiblePrechatFields) {
-
-							embeddedservice_bootstrap.prechatAPI.unsetVisiblePrechatFields(['_firstName','_lastName', '_email']);
-
-						}
-
-					} else {
-
-						console.error("Embedded Service API methods not available.");
-
-					}
-
+					// Remove any items from the previous list that you don't want to send
+					embeddedservice_bootstrap.prechatAPI.removeHiddenPrechatFields(["_email"]);
 				});
-
 
 
 				embeddedservice_bootstrap.init(
