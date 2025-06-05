@@ -3,10 +3,12 @@
 	<script type='text/javascript'>
 		function initEmbeddedMessaging() {
 			try {
-				embeddedservice_bootstrap.settings.language = 'en_US'; // For example, enter 'en' or 'en-
+				embeddedservice_bootstrap.settings.language = 'en_US'; // For example, enter 'en' or 'en-US'
 
 
 				window.addEventListener("onEmbeddedMessagingReady", e => {
+				
+				
 				embeddedservice_bootstrap.prechatAPI.setVisiblePrechatFields({
 				"_firstName": {
 					"value": "Jane",
@@ -15,8 +17,23 @@
 				"_lastName": {
 					"value": "Test",
 					"isEditableByEndUser": true
+					},
+				"_email": {
+					"value": "jane@test.com" ,
+					"isEditableByEndUser": true
+					},
+				"Phone": {
+					"value": "12121212" ,
+					"isEditableByEndUser": true
+					},
+				"Bin Number": {
+					"value": "1111111111" ,
+					"isEditableByEndUser": true
 					}				
 				});
+
+
+
 				});
 
 
