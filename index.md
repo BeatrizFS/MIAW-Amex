@@ -6,20 +6,57 @@
 				embeddedservice_bootstrap.settings.language = 'en_US'; // For example, enter 'en' or 'en-US'
 
 
-					window.addEventListener("onEmbeddedMessagingReady", e => {
-					embeddedservice_bootstrap.prechatAPI.setVisiblePrechatField({
-						"_firstName":{
-							"value":"Test",
-							"isEditableByEndUser": false
-						},
-						"_lastName":{
-							"value":"User",
-							"isEditableByEndUser": false
-						}					
-						
-					});
+				window.addEventListener("onEmbeddedMessagingReady", e => {
+
+					// Check if the method is available before using it
+
+					if (embeddedservice_bootstrap.prechatAPI && embeddedservice_bootstrap.prechatAPI.setVisiblePrechatFields) {
+
+						embeddedservice_bootstrap.prechatAPI.setVisiblePrechatFields({
+
+							"_firstName": {
+
+								"value": "Test",
+
+								"isEditableByEndUser": true
+
+							},
+
+							"_lastName": {
+
+								"value": "User",
+
+								"isEditableByEndUser": true
+
+							},
+
+							"_email": {
+
+								"value": "example@gmail.com",
+
+								"isEditableByEndUser": true
+
+							},
+
+						});
+
+						// Similarly, check for the presence of the method before using it
+
+						if (embeddedservice_bootstrap.prechatAPI.unsetVisiblePrechatFields) {
+
+							embeddedservice_bootstrap.prechatAPI.unsetVisiblePrechatFields(['_firstName','_lastName', '_email']);
+
+						}
+
+					} else {
+
+						console.error("Embedded Service API methods not available.");
+
+					}
 
 				});
+
+
 
 				embeddedservice_bootstrap.init(
 					'00DOx000002jjB7',
