@@ -3,7 +3,14 @@
 		<script type='text/javascript'>
 			function initEmbeddedMessaging() {
 				try {
-					embeddedservice_bootstrap.settings.language = 'en_US'; // For example, enter 'en' or 'en-US'
+					// Detecta automaticamente o idioma do navegador
+					let browserLanguage = navigator.language || navigator.userLanguage || 'en-US';
+					
+					// Exibe o valor detectado no console
+					console.log('Detected browser language:', browserLanguage);
+					
+					// Define o idioma para o Embedded Service
+					embeddedservice_bootstrap.settings.language = browserLanguage;
 
 					embeddedservice_bootstrap.init(
 						'00DOu000001GFQj',
