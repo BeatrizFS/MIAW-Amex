@@ -6,7 +6,7 @@
 			embeddedservice_bootstrap.settings.language = 'en_US';
 
 			window.addEventListener("onEmbeddedMessagingReady", e => {
-				// Campos visíveis no pré-chat
+				// Visíveis no pré-chat
 				embeddedservice_bootstrap.prechatAPI.setVisiblePrechatFields({
 					"_firstName": {
 						"value": "Jane",
