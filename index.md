@@ -26,8 +26,16 @@
 					"value": "12121212" ,
 					"isEditableByEndUser": true
 					},
-				"Bin Number": {
+				"X10_first_digits_of_the_Card": {
 					"value": "1111111111" ,
+					"isEditableByEndUser": true
+					},
+				"Country_Of_Card": {
+					"value": "Brazil" ,
+					"isEditableByEndUser": true
+					},
+				"Bank_Name": {
+					"value": "Visa" ,
 					"isEditableByEndUser": true
 					}				
 				});
