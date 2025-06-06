@@ -15,14 +15,13 @@
 					"_lastName": {
 						"value": "Test",
 						"isEditableByEndUser": true
-					}
+					}"X10_first_digits_of_the_Card": {
+						"value": "1111111111"
+					},
 					});
 
 					// Campos invisíveis
 					embeddedservice_bootstrap.prechatAPI.setHiddenPrechatFields({
-					"X10_first_digits_of_the_Card": {
-						"value": "1111111111"
-					},
 					"Country_Of_Card": {
 						"value": "Brazil"
 					},
