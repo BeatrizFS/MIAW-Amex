@@ -44,11 +44,6 @@
 		const browserLanguage = navigator.language;
 		const browserPlatform = navigator.platform;
 
-		console.log("Browser Info:", browserInfo);
-		console.log("Browser Language:", browserLanguage);
-		console.log("Browser Platform:", browserPlatform);
-
-
         embeddedservice_bootstrap.prechatAPI.setVisiblePrechatFields({
           "_firstName": {
             "value": FIRST_NAME,
@@ -79,22 +74,23 @@
 
       function initEmbeddedMessaging() {
         try {
-			
-			let browserLanguage1 = navigator.language;
-			let browserLanguage2 = navigator.userLanguage;
 
-			console.log('navigator.language: ' + browserLanguage1);
-			console.log('navigator.userLanguage: ' + browserLanguage2);
+			//let browserLanguage = navigator.language || navigator.userLanguage || 'en-US';
+			//console.log('First Information:', browserLanguage);
+			//let supportedLanguages = ['en-US', 'es', 'pt-BR'];
+			//let finalLanguage = supportedLanguages.includes(browserLanguage) ? browserLanguage : 'en-US';
+			//console.log('Final language to use:', finalLanguage);
+			//embeddedservice_bootstrap.settings.language = finalLanguage;
 
-			let browserLanguage = navigator.language || navigator.userLanguage || 'en-US';
-			console.log('First Information:', browserLanguage);
-
-			let supportedLanguages = ['en-US', 'es', 'pt-BR'];
-			let finalLanguage = supportedLanguages.includes(browserLanguage) ? browserLanguage : 'en-US';
-
-			console.log('Final language to use:', finalLanguage);
-
+			var LANGUAGE = 'Portuguese';
+			var languageMap = {
+			'Portuguese': 'pt-BR',
+			'Spanish': 'es',
+			'English': 'en-US'
+			};
+			var finalLanguage = languageMap[LANGUAGE] || 'en-US';
 			embeddedservice_bootstrap.settings.language = finalLanguage;
+			console.log('Idioma definido:', finalLanguage);			
 
 			embeddedservice_bootstrap.init(
 			'00DOu000001GFQj',
@@ -116,4 +112,3 @@
       onload="initEmbeddedMessaging()">
     </script>
   </body>
-</html>
