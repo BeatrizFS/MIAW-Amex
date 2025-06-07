@@ -79,9 +79,12 @@
 
       function initEmbeddedMessaging() {
         try {
+			
+			let browserLanguage1 = navigator.language;
+			let browserLanguage2 = navigator.userLanguage;
 
-			console.log('navigator.language: ' + navigator.language);
-			console.log('navigator.userLanguage: ' + navigator.userLanguage);
+			console.log('navigator.language: ' + browserLanguage1);
+			console.log('navigator.userLanguage: ' + browserLanguage2);
 
 			let browserLanguage = navigator.language || navigator.userLanguage || 'en-US';
 			console.log('First Information:', browserLanguage);
