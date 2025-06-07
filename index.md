@@ -5,6 +5,12 @@
       var FIRST_NAME = "Test";
       var LAST_NAME = "User";
       var BIN_NUMBER = "123456789";
+      var EMAIL = "user@test.com";
+      var PHONE = "987654321";
+      var CLIENT_ID = "13579";
+      var COUNTRY_OF_CARD = "Brazil";
+      var BANK_NAME = "VISA";
+
 
       // Aguarda o carregamento do Embedded Messaging
       window.addEventListener("onEmbeddedMessagingReady", function (e) {
@@ -18,14 +24,17 @@
             "isEditableByEndUser": false
           },
           "X10_first_digits_of_the_Card": {
-            "value": "1234567890",
+            "value": BIN_NUMBER,
             "isEditableByEndUser": false
           }
         });
 
         embeddedservice_bootstrap.prechatAPI.setHiddenPrechatFields({
-          "BrowserLanguage": "ESP"
-		  
+		  "_email" : EMAIL,
+		  "Phone" : PHONE,
+		  "Country_Of_Card" : COUNTRY_OF_CARD,
+		  "Bank_Name" : BANK_NAME
+
         });
       });
 
