@@ -70,8 +70,8 @@
 		  "Client_Id" : CLIENT_ID,
 		  "Country_Of_Card" : COUNTRY_OF_CARD,
 		  "Bank_Name" : BANK_NAME,
-		  "Brower_Name__c" : browserInfo,
-		  "Browser_Language__c" : browserLanguage,
+		  "BrowserName" : browserInfo,
+		  "BrowserLanguage" : browserLanguage,
 		  "BrowserPlatform" : browserPlatform
 
         });
