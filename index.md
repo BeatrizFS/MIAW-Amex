@@ -85,7 +85,7 @@
 
 			let languageCode = browserLanguage.slice(0, 2);
 
-			let supportedLanguages = ['en', 'es', 'pt'];
+			let supportedLanguages = ['en-US', 'es', 'pt-BR'];
 			let finalLanguage = supportedLanguages.includes(languageCode) ? languageCode : 'en';
 
 			console.log('Final language to use:', finalLanguage);
