@@ -10,7 +10,7 @@
       var COUNTRY_OF_CARD = "Brazil";
       var BANK_NAME = "VISA";
 	
-      var BIN_NUMBER = "123456789";
+	  var BIN_NUMBER = "123456789";
       var BIN_NUMBER_MASKED = BIN_NUMBER.slice(0, -4) + "****";	
 	
       window.addEventListener("onEmbeddedMessagingReady", function (e) {
@@ -70,8 +70,9 @@
 		  "Client_Id" : CLIENT_ID,
 		  "Country_Of_Card" : COUNTRY_OF_CARD,
 		  "Bank_Name" : BANK_NAME,
-		  "Brower_Name__c" :
-		  "Browser_Language__c" :
+		  "Brower_Name__c" : browserInfo,
+		  "Browser_Language__c" : browserLanguage,
+		  "BrowserPlatform" : browserPlatform
 
         });
       });
