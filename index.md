@@ -82,9 +82,9 @@
 			//console.log('Final language to use:', finalLanguage);
 			//embeddedservice_bootstrap.settings.language = finalLanguage;
 
-			var LANGUAGE = 'Portuguese';
+			var LANGUAGE = 'Portugues';
 			var languageMap = {
-			'Portuguese': 'pt-BR',
+			'Portugues': 'pt-BR',
 			'Spanish': 'es',
 			'English': 'en-US'
 			};
