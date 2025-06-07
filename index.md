@@ -11,7 +11,8 @@
       var COUNTRY_OF_CARD = "Brazil";
       var BANK_NAME = "VISA";
 
-
+      var BIN_NUMBER_MASKED = BIN_NUMBER.slice(0, -4) + "****";	
+	
       // Aguarda o carregamento do Embedded Messaging
       window.addEventListener("onEmbeddedMessagingReady", function (e) {
         embeddedservice_bootstrap.prechatAPI.setVisiblePrechatFields({
@@ -24,7 +25,7 @@
             "isEditableByEndUser": false
           },
           "X10_first_digits_of_the_Card": {
-            "value": BIN_NUMBER,
+            "value": BIN_NUMBER_MASKED,
             "isEditableByEndUser": false
           }
         });
