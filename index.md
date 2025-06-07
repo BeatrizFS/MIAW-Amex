@@ -1,20 +1,54 @@
 <html>
   <body>
     <script>
-      // Variáveis que podem ser preenchidas pelo backend
       var FIRST_NAME = "Test";
       var LAST_NAME = "User";
-      var BIN_NUMBER = "123456789";
       var EMAIL = "user@test.com";
       var PHONE = "987654321";
-      var CLIENT_ID = "13579";
+
+      var CLIENT_ID = "1a2b3c4d5e";
       var COUNTRY_OF_CARD = "Brazil";
       var BANK_NAME = "VISA";
-
+	
+      var BIN_NUMBER = "123456789";
       var BIN_NUMBER_MASKED = BIN_NUMBER.slice(0, -4) + "****";	
 	
-      // Aguarda o carregamento do Embedded Messaging
       window.addEventListener("onEmbeddedMessagingReady", function (e) {
+
+		const fetchBrowserInfo = () => {
+			const ua = navigator.userAgent;
+			let name = "Unknown";
+			let version = "";
+
+			if (ua.includes("OPR") || ua.includes("Opera")) {
+				name = "Opera";
+				version = ua.match(/OPR\/([\d.]+)/)?.[1] || ua.match(/Opera\/([\d.]+)/)?.[1];
+			} else if (ua.includes("Edg")) {
+				name = "Edge";
+				version = ua.match(/Edg\/([\d.]+)/)?.[1];
+			} else if (ua.includes("Chrome") && !ua.includes("Edg") && !ua.includes("OPR")) {
+				name = "Chrome";
+				version = ua.match(/Chrome\/([\d.]+)/)?.[1];
+			} else if (ua.includes("Safari") && !ua.includes("Chrome")) {
+				name = "Safari";
+				version = ua.match(/Version\/([\d.]+)/)?.[1];
+			} else if (ua.includes("Firefox")) {
+				name = "Firefox";
+				version = ua.match(/Firefox\/([\d.]+)/)?.[1];
+			}
+
+			return `${name} ${version}`;
+		};
+
+		const browserInfo = fetchBrowserInfo();
+		const browserLanguage = navigator.language;
+		const browserPlatform = navigator.platform;
+
+		console.log("Browser Info:", browserInfo);
+		console.log("Browser Language:", browserLanguage);
+		console.log("Browser Platform:", browserPlatform);
+
+
         embeddedservice_bootstrap.prechatAPI.setVisiblePrechatFields({
           "_firstName": {
             "value": FIRST_NAME,
@@ -33,27 +67,38 @@
         embeddedservice_bootstrap.prechatAPI.setHiddenPrechatFields({
 		  "Email" : EMAIL,
 		  "Phone" : PHONE,
+		  "Client_Id" : CLIENT_ID,
 		  "Country_Of_Card" : COUNTRY_OF_CARD,
-		  "Bank_Name" : BANK_NAME
+		  "Bank_Name" : BANK_NAME,
+		  "Brower_Name__c" :
+		  "Browser_Language__c" :
 
         });
       });
 
       function initEmbeddedMessaging() {
         try {
-          let browserLanguage = navigator.language || navigator.userLanguage || 'en-US';
-          console.log('Detected browser language:', browserLanguage);
 
-          embeddedservice_bootstrap.settings.language = browserLanguage;
+			let browserLanguage = navigator.language || navigator.userLanguage || 'en-US';
+			console.log('Detected browser language:', browserLanguage);
 
-          embeddedservice_bootstrap.init(
-            '00DOu000001GFQj',
-            'Amex_External_Website',
-            'https://axaus-travel--uatt.sandbox.my.site.com/ESWAmexExternalWebsite1749245413118',
-            {
-              scrt2URL: 'https://axaus-travel--uatt.sandbox.my.salesforce-scrt.com'
-            }
-          );
+			let languageCode = browserLanguage.slice(0, 2);
+
+			let supportedLanguages = ['en', 'es', 'pt'];
+			let finalLanguage = supportedLanguages.includes(languageCode) ? languageCode : 'en';
+
+			console.log('Final language to use:', finalLanguage);
+
+			embeddedservice_bootstrap.settings.language = finalLanguage;
+
+			embeddedservice_bootstrap.init(
+			'00DOu000001GFQj',
+			'Amex_External_Website',
+			'https://axaus-travel--uatt.sandbox.my.site.com/ESWAmexExternalWebsite1749245413118',
+			{
+				scrt2URL: 'https://axaus-travel--uatt.sandbox.my.salesforce-scrt.com'
+			}
+			);
         } catch (err) {
           console.error('Erro ao carregar Embedded Messaging:', err);
         }
