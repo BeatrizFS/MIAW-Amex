@@ -80,15 +80,14 @@
       function initEmbeddedMessaging() {
         try {
 
+			console.log('navigator.language: ' + navigator.language);
+			console.log('navigator.userLanguage: ' + navigator.userLanguage);
+
 			let browserLanguage = navigator.language || navigator.userLanguage || 'en-US';
 			console.log('First Information:', browserLanguage);
 
-			let languageCode = browserLanguage.toLowerCase();
-
-			console.log('toLowerCase: ' + languageCode);
-
 			let supportedLanguages = ['en-US', 'es', 'pt-BR'];
-			let finalLanguage = supportedLanguages.includes(languageCode) ? languageCode : 'en-US';
+			let finalLanguage = supportedLanguages.includes(browserLanguage) ? browserLanguage : 'en-US';
 
 			console.log('Final language to use:', finalLanguage);
 
