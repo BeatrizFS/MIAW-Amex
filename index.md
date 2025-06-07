@@ -2,9 +2,9 @@
   <body>
     <script>
       // Variáveis que podem ser preenchidas pelo backend
-      var FIRST_NAME = 'Test';
-      var LAST_NAME = 'User';
-      var BIN_NUMBER = '123456789';
+      var FIRST_NAME = "Test";
+      var LAST_NAME = "User";
+      var BIN_NUMBER = "123456789";
 
       // Aguarda o carregamento do Embedded Messaging
       window.addEventListener("onEmbeddedMessagingReady", function (e) {
@@ -24,9 +24,8 @@
         });
 
         embeddedservice_bootstrap.prechatAPI.setHiddenPrechatFields({
-          "BrowserLanguage": {
-            "value": "ESP"
-          }
+          "BrowserLanguage": "ESP"
+		  
         });
       });
 
