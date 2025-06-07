@@ -30,7 +30,7 @@
         });
 
         embeddedservice_bootstrap.prechatAPI.setHiddenPrechatFields({
-		  "_email" : EMAIL,
+		  "Email" : EMAIL,
 		  "Phone" : PHONE,
 		  "Country_Of_Card" : COUNTRY_OF_CARD,
 		  "Bank_Name" : BANK_NAME
