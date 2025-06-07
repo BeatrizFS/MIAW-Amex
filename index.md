@@ -81,7 +81,11 @@
         try {
 
 			let browserLanguage = navigator.language || navigator.userLanguage || 'en-US';
+			console.log('First Information:', browserLanguage);
+
 			let languageCode = browserLanguage.toLowerCase();
+
+			console.log('toLowerCase: ' + languageCode);
 
 			let supportedLanguages = ['en-US', 'es', 'pt-BR'];
 			let finalLanguage = supportedLanguages.includes(languageCode) ? languageCode : 'en-US';
