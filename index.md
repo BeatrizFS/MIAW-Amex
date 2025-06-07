@@ -11,7 +11,7 @@
         // Aqui definimos os campos do pre-chat
         embeddedservice_bootstrap.prechatAPI.setPrechatFieldValues({
           FirstName: FIRST_NAME,
-          LastName: LAST_NAME
+          LastName: LAST_NAME,
 	  X10_first_digits_of_the_Card: BIN_NUMBER
         });
 
