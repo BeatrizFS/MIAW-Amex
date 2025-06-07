@@ -83,7 +83,7 @@
 			let browserLanguage = navigator.language || navigator.userLanguage || 'en-US';
 			let languageCode = browserLanguage.toLowerCase();
 
-			let supportedLanguages = ['en-US', 'es', 'pt-br'];
+			let supportedLanguages = ['en-US', 'es', 'pt-BR'];
 			let finalLanguage = supportedLanguages.includes(languageCode) ? languageCode : 'en-US';
 
 			console.log('Final language to use:', finalLanguage);
