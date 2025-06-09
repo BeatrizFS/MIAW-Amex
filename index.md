@@ -1,10 +1,10 @@
 <html>
   <body>
     <script>
-      var FIRST_NAME = "Test";
-      var LAST_NAME = "User";
-      var EMAIL = "user@test.com";
-      var PHONE = "987654321";
+      var FIRST_NAME = "Athur";
+      var LAST_NAME = "Teixeira";
+      var EMAIL = "arthur@teixeira.com";
+      var PHONE = "987654312";
 
       var CLIENT_ID = "1a2b3c4d5e";
       var COUNTRY_OF_CARD = "Brazil";
@@ -47,15 +47,15 @@
         embeddedservice_bootstrap.prechatAPI.setVisiblePrechatFields({
           "_firstName": {
             "value": FIRST_NAME,
-            "isEditableByEndUser": false
+            "isEditableByEndUser": true
           },
           "_lastName": {
             "value": LAST_NAME,
-            "isEditableByEndUser": false
+            "isEditableByEndUser": true
           },
           "X10_first_digits_of_the_Card": {
             "value": BIN_NUMBER_MASKED,
-            "isEditableByEndUser": false
+            "isEditableByEndUser": true
           }
         });
 
@@ -82,9 +82,9 @@
 			//console.log('Final language to use:', finalLanguage);
 			//embeddedservice_bootstrap.settings.language = finalLanguage;
 
-			var LANGUAGE = 'Portugues';
+			var LANGUAGE = 'Spanish';
 			var languageMap = {
-			'Portugues': 'pt-BR',
+			'Portuguese': 'pt-BR',
 			'Spanish': 'es',
 			'English': 'en-US'
 			};
@@ -112,3 +112,4 @@
       onload="initEmbeddedMessaging()">
     </script>
   </body>
+</html>
