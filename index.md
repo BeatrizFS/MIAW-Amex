@@ -62,7 +62,7 @@
         embeddedservice_bootstrap.prechatAPI.setHiddenPrechatFields({
 		  "Email" : EMAIL,
 		  "Phone" : PHONE,
-		  "Client_Id" : CLIENT_ID,
+		  "Client_ID" : CLIENT_ID,
 		  "Country_Of_Card" : COUNTRY_OF_CARD,
 		  "Bank_Name" : BANK_NAME,
 		  "BrowserName" : browserInfo,
