@@ -1,16 +1,16 @@
 <html>
   <body>
     <script>
-      var FIRST_NAME = "Beatriz";
-      var LAST_NAME = "Silva";
-      var EMAIL = "beatriz@test.com";
+      var FIRST_NAME = "Maria";
+      var LAST_NAME = "Souza";
+      var EMAIL = "maria@test.com";
       var PHONE = "987654312";
 
       var CLIENT_ID = "1a2b3c4d76";
       var COUNTRY_OF_CARD = "Brazil";
       var BANK_NAME = "VISA";
 	
-	  var BIN_NUMBER = "123456789";
+	  var BIN_NUMBER = "2345678901";
       var BIN_NUMBER_MASKED = BIN_NUMBER.slice(0, -4) + "****";		
 	
       window.addEventListener("onEmbeddedMessagingReady", function (e) {
