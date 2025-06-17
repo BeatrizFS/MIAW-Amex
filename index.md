@@ -4,7 +4,7 @@
       var FIRST_NAME = "Maria";
       var LAST_NAME = "Souza";
       var EMAIL = "maria@test.com";
-      var PHONE = "767182712";
+      var PHONE = "865432109";
 
       var CLIENT_ID = "1a2b3c4d76";
       var COUNTRY_OF_CARD = "Brazil";
