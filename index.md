@@ -4,13 +4,13 @@
       var FIRST_NAME = "Maria";
       var LAST_NAME = "Souza";
       var EMAIL = "maria@test.com";
-      var PHONE = "865432109";
+      var PHONE = "987654312";
 
       var CLIENT_ID = "1a2b3c4d76";
       var COUNTRY_OF_CARD = "Brazil";
       var BANK_NAME = "VISA";
 	
-      var BIN_NUMBER = "2345678901";
+	  var BIN_NUMBER = "2345678901";
       var BIN_NUMBER_MASKED = BIN_NUMBER.slice(0, -4) + "****";		
 	
       window.addEventListener("onEmbeddedMessagingReady", function (e) {
@@ -76,15 +76,13 @@
       function initEmbeddedMessaging() {
         try {
 
-            /*Using page parameters:
 			//let browserLanguage = navigator.language || navigator.userLanguage || 'en-US';
 			//console.log('First Information:', browserLanguage);
 			//let supportedLanguages = ['en-US', 'es', 'pt-BR'];
 			//let finalLanguage = supportedLanguages.includes(browserLanguage) ? browserLanguage : 'en-US';
 			//console.log('Final language to use:', finalLanguage);
-			//embeddedservice_bootstrap.settings.language = finalLanguage;*/
+			//embeddedservice_bootstrap.settings.language = finalLanguage;
 
-            //Using Variables:
 			var LANGUAGE = 'Spanish';
 			var languageMap = {
 			'Portuguese': 'pt-BR',
