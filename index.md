@@ -83,7 +83,6 @@
 			console.log('Final language to use:', finalLanguage);
 			embeddedservice_bootstrap.settings.language = finalLanguage;
 
-			var finalLanguage = languageMap[LANGUAGE] || 'en-US';
 			embeddedservice_bootstrap.settings.language = finalLanguage;
 			console.log('Idioma definido:', finalLanguage);			
 
