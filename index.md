@@ -1,40 +1,41 @@
 <html>
   <body>
-    <script>
-      var FIRST_NAME = "Maria";
-      var LAST_NAME = "Souza";
-      var EMAIL = "maria@test.com";
-      var PHONE = "987654312";
+	<script>
+	   var FIRST_NAME = "Marcela";
+	   var LAST_NAME = "Lima";
+	   var EMAIL = "marcela@test.com";
+	   var PHONE = "987654333";
 
-      var CLIENT_ID = "1a2b3c4d76";
-      var COUNTRY_OF_CARD = "Brazil";
-      var BANK_NAME = "VISA";
+	   var CLIENT_ID = "1a2b3c4d78";
+	   var COUNTRY_OF_CARD = "Brazil";
+	   var BANK_NAME = "VISA";
 	
-	  var BIN_NUMBER = "2345678901";
-      var BIN_NUMBER_MASKED = BIN_NUMBER.slice(0, -4) + "****";		
+	   var BIN_NUMBER = "2345678981";
+	   var BIN_NUMBER_MASKED = BIN_NUMBER.slice(0, -4) + "****";		
 	
-      window.addEventListener("onEmbeddedMessagingReady", function (e) {
+		window.addEventListener("onEmbeddedMessagingReady", function (e) {
 
+		const userAgent = navigator.userAgent;
+		
 		const fetchBrowserInfo = () => {
-			const ua = navigator.userAgent;
 			let name = "Unknown";
 			let version = "";
 
-			if (ua.includes("OPR") || ua.includes("Opera")) {
+			if (userAgent.includes("OPR") || userAgent.includes("Opera")) {
 				name = "Opera";
-				version = ua.match(/OPR\/([\d.]+)/)?.[1] || ua.match(/Opera\/([\d.]+)/)?.[1];
-			} else if (ua.includes("Edg")) {
+				version = userAgent.match(/OPR\/([\d.]+)/)?.[1] || userAgent.match(/Opera\/([\d.]+)/)?.[1];
+			} else if (userAgent.includes("Edg")) {
 				name = "Edge";
-				version = ua.match(/Edg\/([\d.]+)/)?.[1];
-			} else if (ua.includes("Chrome") && !ua.includes("Edg") && !ua.includes("OPR")) {
+				version = userAgent.match(/Edg\/([\d.]+)/)?.[1];
+			} else if (userAgent.includes("Chrome") && !userAgent.includes("Edg") && !userAgent.includes("OPR")) {
 				name = "Chrome";
-				version = ua.match(/Chrome\/([\d.]+)/)?.[1];
-			} else if (ua.includes("Safari") && !ua.includes("Chrome")) {
+				version = userAgent.match(/Chrome\/([\d.]+)/)?.[1];
+			} else if (userAgent.includes("Safari") && !userAgent.includes("Chrome")) {
 				name = "Safari";
-				version = ua.match(/Version\/([\d.]+)/)?.[1];
-			} else if (ua.includes("Firefox")) {
+				version = userAgent.match(/Version\/([\d.]+)/)?.[1];
+			} else if (userAgent.includes("Firefox")) {
 				name = "Firefox";
-				version = ua.match(/Firefox\/([\d.]+)/)?.[1];
+				version = userAgent.match(/Firefox\/([\d.]+)/)?.[1];
 			}
 
 			return `${name} ${version}`;
@@ -43,23 +44,24 @@
 		const browserInfo = fetchBrowserInfo();
 		const browserLanguage = navigator.language;
 		const browserPlatform = navigator.platform;
+		const screenResolution = `${window.screen.width}x${window.screen.height}`;
 
-        embeddedservice_bootstrap.prechatAPI.setVisiblePrechatFields({
-          "_firstName": {
-            "value": FIRST_NAME,
-            "isEditableByEndUser": true
-          },
-          "_lastName": {
-            "value": LAST_NAME,
-            "isEditableByEndUser": true
-          },
-          "Bin_Number": {
-            "value": BIN_NUMBER_MASKED,
-            "isEditableByEndUser": true
-          }
-        });
-
-        embeddedservice_bootstrap.prechatAPI.setHiddenPrechatFields({
+		embeddedservice_bootstrap.prechatAPI.setVisiblePrechatFields({
+		  "_firstName": {
+			"value": FIRST_NAME,
+			"isEditableByEndUser": true
+		  },
+		  "_lastName": {
+			"value": LAST_NAME,
+			"isEditableByEndUser": true
+		  },
+		  "Bin_Number": {
+			"value": BIN_NUMBER_MASKED,
+			"isEditableByEndUser": true
+		  }
+		});
+		
+		embeddedservice_bootstrap.prechatAPI.setHiddenPrechatFields({
 		  "Email" : EMAIL,
 		  "Phone" : PHONE,
 		  "Client_ID" : CLIENT_ID,
@@ -68,11 +70,13 @@
 		  "BrowserName" : browserInfo,
 		  "BrowserLanguage" : browserLanguage,
 		  "BrowserPlatform" : browserPlatform,
+		  "UserAgent" : userAgent,
+		  "ScreenResolution" : screenResolution,
 		  "X10_first_digits_of_the_Card" : BIN_NUMBER
-
-        });
-      });
-
+				
+		});
+	  });
+   
       function initEmbeddedMessaging() {
         try {
 
