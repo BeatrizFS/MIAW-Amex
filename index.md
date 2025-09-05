@@ -72,7 +72,9 @@
 		  "BrowserPlatform" : browserPlatform,
 		  "UserAgent" : userAgent,
 		  "ScreenResolution" : screenResolution,
-		  "X10_first_digits_of_the_Card" : BIN_NUMBER
+		  "X10_first_digits_of_the_Card" : BIN_NUMBER,
+		  "Language" : embeddedservice_bootstrap.settings.language
+				
 		});
 	  });
    
@@ -85,9 +87,6 @@
 			let finalLanguage = supportedLanguages.includes(browserLanguage) ? browserLanguage : 'en-US';
 			console.log('Final language to use:', finalLanguage);
 			embeddedservice_bootstrap.settings.language = finalLanguage;
-
-			embeddedservice_bootstrap.settings.language = finalLanguage;
-			console.log('Idioma definido:', finalLanguage);	
 
 			embeddedservice_bootstrap.settings.language = finalLanguage;
 			console.log('Idioma definido:', finalLanguage);			
