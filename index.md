@@ -72,8 +72,8 @@
 		  "BrowserPlatform" : browserPlatform,
 		  "UserAgent" : userAgent,
 		  "ScreenResolution" : screenResolution,
-		  "X10_first_digits_of_the_Card" : BIN_NUMBER
-				
+		  "X10_first_digits_of_the_Card" : BIN_NUMBER,
+		  "Language" :	LANGUAGE
 		});
 	  });
    
