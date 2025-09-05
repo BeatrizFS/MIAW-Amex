@@ -72,23 +72,22 @@
 		  "BrowserPlatform" : browserPlatform,
 		  "UserAgent" : userAgent,
 		  "ScreenResolution" : screenResolution,
-		  "X10_first_digits_of_the_Card" : BIN_NUMBER,
-		  "Language" :	LANGUAGE
+		  "X10_first_digits_of_the_Card" : BIN_NUMBER
 		});
 	  });
    
       function initEmbeddedMessaging() {
         try {
 
-			var LANGUAGE = 'Spanish';
-			var languageMap = {
-			'Portuguese': 'pt-BR',
-			'Spanish': 'es',
-			'English': 'en-US'
-			};
-			var finalLanguage = languageMap[LANGUAGE] || 'en-US';
+			let browserLanguage = navigator.language || navigator.userLanguage || 'en-US';
+			console.log('First Information:', browserLanguage);
+			let supportedLanguages = ['en-US', 'es', 'pt-BR'];
+			let finalLanguage = supportedLanguages.includes(browserLanguage) ? browserLanguage : 'en-US';
+			console.log('Final language to use:', finalLanguage);
 			embeddedservice_bootstrap.settings.language = finalLanguage;
-			console.log('Defined language:', finalLanguage);	
+
+			embeddedservice_bootstrap.settings.language = finalLanguage;
+			console.log('Idioma definido:', finalLanguage);	
 
 			embeddedservice_bootstrap.settings.language = finalLanguage;
 			console.log('Idioma definido:', finalLanguage);			
