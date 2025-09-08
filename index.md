@@ -95,7 +95,7 @@
             //embeddedservice_bootstrap.settings.language = finalLanguage;*/
 
             //Using Variables:            
-            var LANGUAGE = 'Spanish';
+            var LANGUAGE = 'Portuguese';
             var languageMap = {
             'Portuguese': 'pt-BR',
             'Spanish': 'es',
