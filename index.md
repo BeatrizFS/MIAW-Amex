@@ -121,7 +121,7 @@
  
     <script
       type="text/javascript"
-      src="https://axaus-travel.my.site.com/ESWAmexExternalWebsite1757341764203/assets/js/bootstrap.min.js"
+      src="https://axaus-travel--uatt.sandbox.my.site.com/ESWExternalAmexUAT1753721027019/assets/js/bootstrap.min.js' onload='initEmbeddedMessaging()"
       onload="initEmbeddedMessaging()">
     </script>
   </body>
