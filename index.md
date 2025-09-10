@@ -106,11 +106,11 @@
             console.log('Defined language:', finalLanguage);
  
 			embeddedservice_bootstrap.init(
-				'00DHs000000PO0u',
-				'Amex_External_Website',
-				'https://axaus-travel.my.site.com/ESWAmexExternalWebsite1757341764203',
+				'00DOu000001GFQj',
+				'External_Amex_UAT',
+				'https://axaus-travel--uatt.sandbox.my.site.com/ESWExternalAmexUAT1753721027019',
 				{
-					scrt2URL: 'https://axaus-travel.my.salesforce-scrt.com'
+					scrt2URL: 'https://axaus-travel--uatt.sandbox.my.salesforce-scrt.com'
 				}
 			);
 		} catch (err) {
