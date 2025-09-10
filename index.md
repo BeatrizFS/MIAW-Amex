@@ -14,12 +14,67 @@
       var BIN_NUMBER_MASKED = BIN_NUMBER.slice(0, -4) + "****";
       
       var IPAddress = "161.69.53.12";
+
+     console.log({ FIRST_NAME, LAST_NAME, EMAIL, PHONE, CLIENT_ID,
+              COUNTRY_OF_CARD, BANK_NAME, BIN_NUMBER, BIN_NUMBER_MASKED, IPAddress });
  
       window.addEventListener("onEmbeddedMessagingReady", function (e) {
     
 		const userAgent = navigator.userAgent;
 		
 		const fetchBrowserInfo = () => {
+			let name = "Unknown";
+			let version = "";
+
+			if (userAgent.includes("OPR") || userAgent.includes("Opera")) {
+				name = "Opera";
+				version = userAgent.match(/OPR\/([\d.]+)/)?.[1] || userAgent.match(/Opera\/([\d.]+)/)?.[1];
+			} else if (userAgent.includes("Edg")) {
+				name = "Edge";
+				version = userAgent.match(/Edg\/([\d.]+)/)?.[1];
+			} else if (userAgent.includes("Chrome") && !userAgent.includes("Edg") && !userAgent.includes("OPR")) {
+				name = "Chrome";
+				version = userAgent.match(/Chrome\/([\d.]+)/)?.[1];
+			} else if (userAgent.includes("Safari") && !userAgent.includes("Chrome")) {
+				name = "Safari";
+				version = userAgent.match(/Version\/([\d.]+)/)?.[1];
+			} else if (userAgent.includes("Firefox")) {
+				name = "Firefox";
+				version = userAgent.match(/Firefox\/([\d.]+)/)?.[1];
+			}
+
+			return `${name} ${version}`;
+		};
+
+		const browserInfo = fetchBrowserInfo();
+		const browserLanguage = navigator.language;
+		const browserPlatform = navigator.platform;
+		const screenResolution = `${window.screen.width}x${window.screen.height}`;
+
+		embeddedservice_bootstrap.prechatAPI.setVisiblePrechatFields({
+		  "_firstName": {
+			"value": FIRST_NAME,
+			"isEditableByEndUser": true
+		  },
+		  "_lastName": {
+			"value": LAST_NAME,
+			"isEditableByEndUser": true
+		  },
+		  "Bin_Number": {
+			"value": BIN_NUMBER_MASKED,
+			"isEditableByEndUser": true
+		  }
+		});
+		
+		embeddedservice_bootstrap.prechatAPI.setHiddenPrechatFields({
+		  "Email" : EMAIL,
+		  "Phone" : PHONE,
+		  "Client_ID" : CLIENT_ID,
+		  "Country_Of_Card" : COUNTRY_OF_CARD,
+		  "Bank_Name" : BANK_NAME,
+		  "BrowserName" : browserInfo,
+		  "BrowserLanguage" : browserLanguage,
+		  "BrowserPlatform" : browserPlatform,
 		  "UserAgent" : userAgent,
 		  "ScreenResolution" : screenResolution,
 		  "X10_first_digits_of_the_Card" : BIN_NUMBER,
@@ -40,7 +95,7 @@
             //embeddedservice_bootstrap.settings.language = finalLanguage;*/
 
             //Using Variables:            
-            var LANGUAGE = 'Spanish';
+            var LANGUAGE = 'Portuguese';
             var languageMap = {
             'Portuguese': 'pt-BR',
             'Spanish': 'es',
@@ -49,7 +104,7 @@
             var finalLanguage = languageMap[LANGUAGE] || 'en-US';
             embeddedservice_bootstrap.settings.language = finalLanguage;
             console.log('Defined language:', finalLanguage);
-
+ 
 			embeddedservice_bootstrap.init(
 				'00DHs000000PO0u',
 				'Amex_External_Website',
